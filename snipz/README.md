@@ -12,7 +12,7 @@ A reference implementation of Snipz is online [here](https://app.deta.sh/cclwqvx
 
 Create your code snippet from the Snipz home page.
 
-Give it a name and a 'merge password', then hit 'create'. The 'merge password' holds the keys to your snippets destiny.
+Give it a name and a 'merge password', then hit 'create'. The 'merge password' holds the keys to your snippet's destiny.
 
 ## Suggesting Changes
 
