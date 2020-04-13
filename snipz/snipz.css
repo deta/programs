@@ -1,0 +1,128 @@
+body {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #09131b !important;
+  }
+  
+  #app {
+    height: 100vh;
+    width: 100vw;
+    background: #ffffff
+  }
+  
+  #create-button {
+    width: 80px;
+    height: 40px;
+    background: #ffffff;
+    border: 1px solid #777777;
+    border-radius: 0.125rem;
+    color: #777777;
+    display: inline-block;
+  }
+  
+  #create-button:hover {
+    border: 1px solid #09131b;
+    border-radius: 0.125rem;
+    color: #09131b;
+  }
+  
+  #create-button:focus {
+    outline: none;
+  }
+  
+  #input-container {
+    padding-left: 40px;
+  }
+  
+  .snip-input {
+    height: 40px;
+    background: #ffffff;
+    line-height: 20px;
+    padding: 0px 0px 0px 0px;
+    outline: 0;
+    border-width: 0 0 1px;
+    border-color: #777777;
+  }
+  
+  .snip-input:focus {
+    border: 1px solid #09131b;
+    border-radius: 0.125rem;
+  }
+  
+  .nav-button {
+    width: 40px;
+    height: 40px;
+    color: #777777;
+    border: 1px solid #777777;
+    border-radius: 0.125rem;
+    display: inline-block;
+  }
+  
+  .nav-button:hover {
+    border: 1px solid #09131b;
+    color: #09131b;
+  }
+  
+  .nav-button:focus {
+    outline: none;
+  }
+  
+  .control-row {
+    height: 40px;
+  }
+  
+  #merge-view {
+    color: #777777;
+  }
+  
+  #merge-view:hover {
+    color: #09131b;
+    text-decoration: underline;
+  }
+  
+  .title-row {
+    height: 50px;
+    color: #09131b;
+  }
+  
+  .control-bar {
+    padding-left: 40px;
+  }
+  
+  .acediff__wrap {
+      position: relative !important;
+  }
+  
+  .acediff__gutter, .acediff__gutter svg {
+      background-color: #ffffff !important;
+  }
+  
+  .acediff__gutter {
+      border-left: none !important;
+      border-right: none !important;
+  }
+  
+  .ace-tm .ace_gutter {
+      background: #ffffff !important;
+      color: #09131b !important;
+  }
+  
+  .ace_gutter-cell {
+      background: #ffffff !important;
+      color: #09131b !important;
+  }
+  
+  .codeflask {
+    position: relative !important;
+    overflow-x: auto;
+    color: #1d1f21 !important;
+    height: auto;
+  }
+  
+  .codeflask__lines {
+    background-color: #ffffff;
+    color:  #09131b !important;
+  }
+  
+  .codeflask.codeflask--has-line-numbers:before {
+    background: #ffffff !important;
+  }

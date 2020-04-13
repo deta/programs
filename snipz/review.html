@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Snipz</title>
+    <meta charset="UTF-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.3/ace.js"></script>
+    <link rel="stylesheet" href="https://app.deta.sh/cclwqvx4995d/snipz.css" />
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+    <link href="https://unpkg.com/ace-diff@^2.0.0/dist/ace-diff.min.css" rel="stylesheet" />
+    <script src="https://unpkg.com/ace-diff@^2.0.0"></script>
+  </head>
+
+  <body>
+    <div id="app" class="flex justify-center">
+      <div class="flex flex-column w-100 h-60 pt4">
+        <div class="pl3 title-row f3" id="snip-name">{{ snippet_data.name|e}}</div>
+        <div class="w-100 h-50 justify center" id="acediff"></div>
+        <div class="flex w-100 h-10">
+            <div class="w-50"></div>
+            <div class="flex-column w-50">
+            <div class="flex ph4 pv4 control-bar items-center">
+              <button class="f5 pointer" id="create-button">
+                ← merge
+              </button>
+              <input class="w-25 snip-input mh3 pl2" id="pass-input" placeholder="merge password" />
+              <div class="f5 ph4">
+                <span id="index">1</span> of {{ snippet_data.proposed_changes.keys()|length }} suggested changes
+              </div>
+              <button class="up f5 mr2 nav-button pointer" id="up-button">
+                ↑
+              </button>
+              <button class="down f5 nav-button pointer" id="down-button">
+                ↓
+              </button>
+            </div>
+            <a class="f5 pl4 pointer" id="merge-view">
+              propose a new change
+            </a>
+            </div>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+    let input = {{ snippet_data|tojson }};
+    
+    let changeIds = Object.keys(input.proposed_changes);
+    let maxIndex = changeIds.length - 1;
+    
+    let index = 0;
+    
+    const updateIndex = action => {
+        if (action === "up") {
+            index = index + 1 > maxIndex ? 0 : index + 1;
+        } else {
+            index = index - 1 < 0 ? maxIndex : index - 1;
+        }
+    }
+    
+    const initCode = maxIndex >= 0 ? input.proposed_changes[changeIds[index]]["code"] : "no changes";
+
+    var diffEditor = new AceDiff({
+      element: '#acediff',
+      mode: "ace/mode/javascript",
+      left: {
+        content: input.code,
+        editable: false,
+        copyLinkEnabled: false
+      },
+      right: {
+        content: initCode,
+        editable: false,
+        copyLinkEnabled: false
+      },
+    });
+    
+    
+    const elem = document.getElementById('index');
+    const upButton = document.getElementById("up-button");
+    
+    upButton.addEventListener('click', function() {
+        updateIndex("up");
+        elem.innerHTML = index + 1;
+        const code = input.proposed_changes[changeIds[index]]["code"];
+        diffEditor.getEditors().right.setValue(code);
+    });
+    
+    const downButton = document.getElementById("down-button");
+    downButton.addEventListener('click', function() {
+        updateIndex("down");
+        elem.innerHTML = index + 1;
+        const code = input.proposed_changes[changeIds[index]]["code"];
+        diffEditor.getEditors().right.setValue(code);
+    });
+    
+    const mergeButton = document.getElementById("create-button");
+    mergeButton.addEventListener('click', async function () {
+        const snippet_id = input.snip_id;
+        const change_id = changeIds[index];
+        const pass = document.getElementById("pass-input").value;
+        const data = {
+            "password": pass ? pass : "community merge"
+        };
+        const response = await fetch(`https://app.deta.sh/cclwqvx4995d/snippets/${snippet_id}/merge/${change_id}`, {
+            method: 'PATCH',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            redirect: 'follow',
+            referrerPolicy: 'no-referrer',
+            body: JSON.stringify(data)
+        });
+        window.location.replace(`https://app.deta.sh/cclwqvx4995d/snippets/${snippet_id}/review`);
+    });
+    
+    const propose = document.getElementById("merge-view");
+    propose.addEventListener('click', function () {
+        const snippet_id = input.snip_id;
+        console.log(snippet_id);
+        window.location.replace(`https://app.deta.sh/cclwqvx4995d/snippets/${snippet_id}`);
+    });
+    </script>
+  </body>
+</html>

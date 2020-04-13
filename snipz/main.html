@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://app.deta.sh/cclwqvx4995d/snipz.css" />
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+    <script src="https://unpkg.com/codeflask/build/codeflask.min.js"></script>
+  </head>
+  <body>
+    <div id="app" class="flex flex-column items-center">
+      <div class="flex flex-column w-60 h-50 pt4 items-center" id="contain">
+          <div class="w-100 h-100" id="code"></div>
+      </div>
+      <div class="flex control-row w-60  mv2" id="control-row">
+        <div class="flex h-100 w-50" id="input-container">
+          <input class="w-40 mr4 pl2 snip-input" id="snip-input" placeholder="snippet name" />
+          <input class="w-40 pl2 snip-input" id="pass-input" placeholder="merge password" />
+        </div>
+        <div class="flex h-100 w-50 flex-row-reverse ">
+          <button class="f5 pointer" id="create-button">
+            create
+          </button>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+
+    const flasks = {};
+    
+    const createFlask = (identifier) => {
+      flasks[identifier] = new CodeFlask("#code", {
+        language: "js",
+        lineNumbers: true
+      });
+      flasks[identifier].updateCode("start your snippet");
+    };
+    
+    createFlask("code");
+    
+    const proposeButton = document.getElementById("create-button");
+    proposeButton.addEventListener('click', async function () {
+        const name = document.getElementById("snip-input").value;
+        const pass = document.getElementById("pass-input").value;
+        const data = {
+            "name": name,
+            "code": flasks["code"].getCode(),
+            "password": pass ? pass : "community merge"
+        };
+        const response = await fetch(`https://app.deta.sh/cclwqvx4995d/create_snippet`, {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            redirect: 'follow',
+            referrerPolicy: 'no-referrer',
+            body: JSON.stringify(data)
+        });
+        const json = await response.json();
+        const snippet_id = json.snip_id;
+        window.location.replace(`https://app.deta.sh/cclwqvx4995d/snippets/${snippet_id}`);
+    });
+        
+
+    
+    </script>
+  </body>
+</html>
