@@ -17,6 +17,7 @@ from jinja2 import Template
 # main.html: https://app.deta.sh/cclwqvx4995d/snippets/xrdi-1512
 # snipz.css: https://app.deta.sh/cclwqvx4995d/snippets/hipy-1460
 # main.py: https://app.deta.sh/cclwqvx4995d/snippets/fptk-6045
+# README.md: https://app.deta.sh/cclwqvx4995d/snippets/oulg-9883
 
 fast = FastAPI()
 
@@ -132,7 +133,8 @@ async def make_snippet(new_snip: Snippet):
     snip_dict["hashed_password"] = get_password_hash(new_snip.password)
     del snip_dict["password"]
     snippets.put(new_snip.snip_id, snip_dict)
-    return new_snip
+    del snip_dict["hashed_password"]
+    return Snippet(**snip_dict)
 
 
 @app.get("/snippets/{snippet_id}")
@@ -193,4 +195,3 @@ def handler(event):
     snip_id = event.json["snip_id"]
     snippets.delete(snip_id)
     return snippets.all()
-
