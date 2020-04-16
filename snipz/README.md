@@ -6,7 +6,7 @@ With Snipz, you can create a code snippet, share the link, and start accepting a
 
 You can host your own public or permissioned version of Snipz with zero-modification on [DETA](https://deta.sh/). Snipz can be modified to work elsewhere.
 
-A reference implementation of Snipz is online [here](https://app.deta.sh/cclwqvx4995d/). For using your own implementation of Snipz, simply replace the `<snipz_host_url>` in the rest of the examples with your own url.
+A reference implementation of Snipz is online [here](https://cclwqvx4995d.deta.dev/). For using your own implementation of Snipz, simply replace the `<snipz_host_url>` in the rest of the examples with your own url.
 
 ## Creating a Snippet
 
