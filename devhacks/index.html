@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DevHacks by DevChat</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link rel="icon" type="image/png" href="https://devchat.dev/favicon-32x32.png" sizes="32x32" />
+  <style>
+html {
+	font-family: sans-serif;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%
+}
+
+section {
+	display: block
+}
+
+a {
+	background-color: transparent
+}
+
+a:active,
+a:hover {
+	outline: 0
+}
+
+strong {
+	font-weight: 700
+}
+
+h1 {
+	margin: .67em 0
+}
+
+img {
+	border: 0
+}
+
+code {
+	font-family: monospace, monospace;
+	font-size: 1em
+}
+
+input {
+	color: inherit;
+	font: inherit;
+	margin: 0
+}
+
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0
+}
+
+input {
+	line-height: normal
+}
+
+input[type=search] {
+	-webkit-appearance: none
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+	-webkit-appearance: none
+}
+
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box
+}
+
+html {
+	height: 100%
+}
+
+body {
+	margin: 0;
+	min-height: 100%;
+	background-color: #fff
+}
+
+img {
+	max-width: 100%;
+	vertical-align: middle;
+	display: inline-block
+}
+
+.w-inline-block {
+	max-width: 100%;
+	display: inline-block
+}
+
+.w-button {
+	display: inline-block;
+	padding: 9px 15px;
+	background-color: #3898EC;
+	color: #fff;
+	border: 0;
+	line-height: inherit;
+	text-decoration: none;
+	cursor: pointer;
+	border-radius: 0
+}
+
+input.w-button {
+	-webkit-appearance: button
+}
+
+h1,
+h3 {
+	font-weight: 700;
+	margin-bottom: 10px
+}
+
+h1 {
+	font-size: 38px;
+	line-height: 44px;
+	margin-top: 20px
+}
+
+h3 {
+	font-size: 24px;
+	line-height: 30px;
+	margin-top: 20px
+}
+
+p {
+	margin-top: 0;
+	margin-bottom: 10px
+}
+
+ul {
+	margin-top: 0;
+	margin-bottom: 10px;
+	padding-left: 40px
+}
+
+.w-form {
+	margin: 0 0 15px
+}
+
+.w-form-done {
+	display: none;
+	padding: 20px;
+	text-align: center;
+	background-color: #ddd
+}
+
+.w-form-fail {
+	display: none;
+	margin-top: 10px;
+	padding: 10px;
+	background-color: #ffdede
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: 700
+}
+
+.w-input {
+	display: block;
+	width: 100%;
+	height: 38px;
+	padding: 8px 12px;
+	margin-bottom: 10px;
+	font-size: 14px;
+	line-height: 1.428571429;
+	color: #333;
+	vertical-align: middle;
+	background-color: #fff;
+	border: 1px solid #ccc
+}
+
+.w-input:-moz-placeholder {
+	color: #999
+}
+
+.w-input::-moz-placeholder {
+	color: #999;
+	opacity: 1
+}
+
+.w-input:-ms-input-placeholder {
+	color: #999
+}
+
+.w-input::-webkit-input-placeholder {
+	color: #999
+}
+
+.w-input:focus {
+	border-color: #3898EC;
+	outline: 0
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg)
+	}
+	100% {
+		transform: rotate(360deg)
+	}
+}
+
+body {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	padding-bottom: 60px;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	color: #242424;
+	font-size: 16px;
+	line-height: 20px
+}
+
+.section {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	width: 100%;
+	min-width: 300px;
+	padding-top: 39px;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	background-color: #2455db;
+	color: #fff
+}
+
+.heading {
+	margin-bottom: 30px
+}
+
+.form {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	margin-top: 30px;
+	padding-bottom: 50px;
+	-webkit-box-align: end;
+	-webkit-align-items: flex-end;
+	-ms-flex-align: end;
+	align-items: flex-end
+}
+
+.input {
+	padding-right: 20px;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1
+}
+
+.submit-button {
+	width: 20%;
+	height: 50px;
+	border-radius: 3px;
+	background-color: #ffef42;
+	color: rgba(0, 0, 0, .82);
+	font-weight: 900
+}
+
+.field {
+	width: 100%;
+	height: 50px;
+	margin-bottom: 0;
+	border-radius: 3px
+}
+
+.para {
+	font-size: 18px;
+	line-height: 24px
+}
+
+.row {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	width: 60vw;
+	padding-top: 50px;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between
+}
+
+.logo {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-justify-content: space-around;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+	-webkit-box-align: stretch;
+	-webkit-align-items: stretch;
+	-ms-flex-align: stretch;
+	align-items: stretch
+}
+
+.col2 {
+	width: 70%
+}
+
+.list {
+	font-size: 18px;
+	line-height: 24px
+}
+
+.hero {
+	width: 60vw
+}
+
+.text-block {
+	margin-top: 60px;
+	font-size: 40px;
+	line-height: 40px
+}
+
+.row2 {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	margin-top: 30px;
+	padding: 20px;
+	-webkit-justify-content: space-around;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	border-radius: 115px;
+	background-color: #e7e7e7
+}
+
+.l1 {
+	margin-right: 19px;
+	color: #777;
+	font-size: 16px;
+	letter-spacing: 1px;
+	text-transform: uppercase
+}
+
+.llink {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	width: 250px;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center
+}
+
+.logos {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	width: 70%;
+	-webkit-justify-content: space-around;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center
+}
+
+@media screen and (max-width:991px) {
+	.hero,
+	.row,
+	.row2 {
+		width: 90vw
+	}
+	.llink {
+		width: 180px
+	}
+	.logos {
+		width: 90%
+	}
+}
+
+@media screen and (max-width:767px) {
+	.logo {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column
+	}
+	.row2 {
+		width: 94vw
+	}
+	.logos {
+		width: 100%
+	}
+}
+
+@media screen and (max-width:479px) {
+	.form {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		-ms-flex-align: center;
+		align-items: center
+	}
+	.input {
+		width: 100%;
+		margin-bottom: 20px;
+		padding-right: 0;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-webkit-box-align: start;
+		-webkit-align-items: flex-start;
+		-ms-flex-align: start;
+		align-items: flex-start
+	}
+	.submit-button {
+		width: 70%;
+		margin-top: 20px
+	}
+	.para {
+		width: 100%;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column
+	}
+	.row {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-webkit-box-align: stretch;
+		-webkit-align-items: stretch;
+		-ms-flex-align: stretch;
+		align-items: stretch
+	}
+	.logo {
+		width: 100%;
+		-webkit-box-pack: justify;
+		-webkit-justify-content: space-between;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		-ms-flex-align: center;
+		align-items: center
+	}
+	.col2 {
+		width: 100%
+	}
+	.row2 {
+		width: 94vw;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-webkit-box-pack: justify;
+		-webkit-justify-content: space-between;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+		border-radius: 9px
+	}
+	.llink {
+		width: 150px
+	}
+	.logos {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-webkit-box-align: start;
+		-webkit-align-items: flex-start;
+		-ms-flex-align: start;
+		align-items: flex-start
+	}
+}
+  </style>
+</head>
+<body class="body">
+  <div class="section">
+    <div class="hero">
+      <h1>DevHacks #1</h1>
+      <h3 class="heading">A little bit goes a long way<br></h3>
+      <p class="para">DevHacks is an open online hackathon organized by DevChat and sponsored by DETA. Join now!</p>
+      <small>Sign Up with a Team Name and your email. After signing up, you will receive a team ID. </small>
+      <br/>
+      <small>To form a team, get a partner to provide it in the "Team Name" field when they sign up.</small>
+      <div class="w-form">
+        <form id="email-form" name="email-form" data-name="Email Form" class="form">
+          <div class="input"><label for="name">Team Name</label><input type="text" class="field w-input" maxlength="256" name="name" data-name="Name" placeholder="" id="name"></div>
+          <div class="input"><label for="email">Email Address</label><input type="email" class="field w-input" maxlength="256" name="email" data-name="Email" placeholder="" id="email" required=""></div><input id="btn" type="submit" value="Signup" data-wait="Please wait..." class="submit-button w-button"></form>
+        <p><strong id="status"></strong></p>
+
+      </div>
+    </div>
+  </div>
+  <div class="row2">
+    <div class="logos">
+      <div class="logo">
+        <h3 class="l1">Organizer</h3><a target="_blank" href="https://devchat.dev/" class="llink w-inline-block"><img src="https://devchat.dev/images/devchat.png" width="200" alt=""></a></div>
+      <div class="logo">
+        <h3 class="l1">Sponsor</h3><a target="_blank" href="https://deta.sh/" class="llink w-inline-block"><img src="https://devchat.dev/images/deta.png" width="200" alt=""></a></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3>Prizes</h3>
+    </div>
+    <div class="col2">
+      <ul class="list">
+        <li>$500 cash</li>
+        <li>2x Raspberry Pi</li>
+        <li>2x <a href="https://polypane.app/" target="_blank">Polypane</a> subscriptions</li>
+        <li>Limited edition DevChat Stickers</li>
+        <li>T-Shirts</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3>Agenda</h3>
+    </div>
+    <div class="col2">
+      <ul class="list">
+        <li>Official start and challenges announcements: <strong>Friday, 01.05 at </strong><a href="https://www.google.com/search?q=1+pm+utc" target="_blank"><strong>01:00 PM UTC</strong></a></li>
+        <li>Hackathon ends <strong>Sunday, 03.05 01:00 PM UTC</strong></li>
+        <li>Community voting: TBA</li>
+        <li>Announcing winners: TBA</li>
+        <li><strong>Signup is open now!</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3>For whom?</h3>
+    </div>
+    <div class="col2">
+      <p class="para">The hackathon is open for everyone around the globe and aims to help developers code together, especially beginners. To qualify for the prizes, you need to join DevChat.<br><br>Only solo developers and teams with up to 2 members can participate.<br></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3>Team matching</h3>
+    </div>
+    <div class="col2">
+      <p class="para">If you don't have a partner, but would like to hack with another person, make sure to post to our <a href="https://app.slack.com/client/T0Q0J6DM0/C012896JCG2" target="_blank">#devhacks</a> channel or create an issue under the <a href="https://github.com/devchat-dev/devhacks/issues" target="_blank">DevHack repo</a>.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3>Stay connected</h3>
+    </div>
+    <div class="col2">
+      <p class="para">Keep in touch on Slack by joining our <a href="https://app.slack.com/client/T0Q0J6DM0/C012896JCG2" target="_blank">#devhacks </a>channel.<br>Also make sure to follow <a href="https://twitter.com/devchat_" target="_blank">DevChat on Twitter</a>.</p>
+    </div>
+  </div>
+  <div class="text-block">🙌</div>
+  <p><a href="https://github.com/deta/programs/tree/master/devhacks" target="_blank">source</a></p>
+ <script>
+(function(){
+
+  async function submit(event){
+    event.preventDefault()
+    console.log(event)
+    let name = document.getElementById("name")
+    let email = document.getElementById("email")
+
+    if (email.checkValidity()){
+      document.getElementById("status").innerHTML = "Patience you must have, my young padawan."
+      try{
+        let res = await fetch("https://devhacks.deta.dev/form", {
+            method: "POST",
+            body: JSON.stringify({email: email.value, name: name.value})
+          })
+        if (res.ok){
+            let data = await res.json()
+            console.log(data)
+            let msg;
+            if (data.team) {
+                msg = "You have joined team '" + data.team + "'!"
+            } else if (data.full) {
+                msg = data.full + " is full, please contact an admin!"
+            } else {
+                msg = "Success :) Your team ID is '" + data.id + "'. To form a team, another dev could join your team by entering this ID in the 'Team Name' field."
+            }
+            document.getElementById("status").innerHTML = msg
+            document.getElementById("email").value = ""
+            document.getElementById("name").value = ""
+        }
+      } catch (e){
+        console.error(e)
+        document.getElementById("status").innerHTML = "Something went wrong. Hard refresh and retry. Also check the console then email mustafa@devolio.net"
+      }
+    } else {
+      document.getElementById("status").innerHTML = "Are you sure that's a valid email address?"
+    }
+  }
+  document.getElementById("btn").addEventListener("click", submit);
+})();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159081627-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-159081627-2');
+</script>
+</body>
+</html>
