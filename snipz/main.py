@@ -12,12 +12,12 @@ from jinja2 import Template
 # https://fastapi.tiangolo.com/
 
 
-# suggest.html: https://app.deta.sh/cclwqvx4995d/snippets/chek-0030
-# review.html: https://app.deta.sh/cclwqvx4995d/snippets/pvmh-1775
-# main.html: https://app.deta.sh/cclwqvx4995d/snippets/xrdi-1512
-# snipz.css: https://app.deta.sh/cclwqvx4995d/snippets/hipy-1460
-# main.py: https://app.deta.sh/cclwqvx4995d/snippets/fptk-6045
-# README.md: https://app.deta.sh/cclwqvx4995d/snippets/oulg-9883
+# suggest.html: https://cclwqvx4995d.deta.dev/snippets/chek-0030
+# review.html: https://cclwqvx4995d.deta.dev/snippets/pvmh-1775
+# main.html: https://cclwqvx4995d.deta.dev/snippets/xrdi-1512
+# snipz.css: https://cclwqvx4995d.deta.dev/snippets/hipy-1460
+# main.py: https://cclwqvx4995d.deta.dev/snippets/fptk-6045
+# README.md: https://cclwqvx4995d.deta.dev/snippets/oulg-9883
 
 fast = FastAPI()
 
@@ -186,7 +186,7 @@ async def merge_change(snippet_id: str, change_id: str, password: Password):
 
 @app.lib.run()
 def handler(event):
-    return snippets.all()
+    return len(snippets.all())
 
 
 
@@ -194,4 +194,4 @@ def handler(event):
 def handler(event):
     snip_id = event.json["snip_id"]
     snippets.delete(snip_id)
-    return snippets.all()
+    return len(snippets.all())
