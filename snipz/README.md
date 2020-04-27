@@ -4,7 +4,7 @@ Snipz hosts snippets at a unique url, that can evolve with PRs.
 
 With Snipz, you can create a code snippet, share the link, and start accepting and incorporating code suggestions as they come in.
 
-You can host your own public or permissioned version of Snipz with zero-modification on [DETA](https://deta.sh/). Snipz can be modified to work elsewhere.
+You can host your own public or permissioned version of Snipz on [DETA](https://deta.sh/) for free. Snipz can be modified to work elsewhere.
 
 A reference implementation of Snipz is online [here](https://cclwqvx4995d.deta.dev/). For using your own implementation of Snipz, simply replace the `<snipz_host_url>` in the rest of the examples with your own url.
 
@@ -33,4 +33,5 @@ Navigate using the arrows to the desired change, enter the 'merge password' in t
 
 ## Modifying Snipz
 
-Snipz is a big WIP. You can submit PRs here, or you can suggest changes within [Snipz itself](https://app.deta.sh/cclwqvx4995d/snippets/fptk-6045).
+
+Snipz is a big WIP. You can submit PRs here, or you can submit PRs within [Snipz itself](https://cclwqvx4995d.deta.dev/snippets/fptk-6045).
