@@ -12,7 +12,7 @@ A reference implementation of Snipz is online [here](https://cclwqvx4995d.deta.d
 
 Create your code snippet from the Snipz home page.
 
-Give it a name and a 'merge password', then hit 'create'. The 'merge password' holds the keys to your snippets destiny.
+Give it a name and a 'merge password', then hit 'create'. The 'merge password' holds the keys to your snippet's destiny.
 
 ## Suggesting Changes
 
@@ -32,5 +32,6 @@ To merge and view suggested changes, visit a snippets review page, which follows
 Navigate using the arrows to the desired change, enter the 'merge password' in the input box, and hit 'merge'.
 
 ## Modifying Snipz
+
 
 Snipz is a big WIP. You can submit PRs here, or you can submit PRs within [Snipz itself](https://cclwqvx4995d.deta.dev/snippets/fptk-6045).
